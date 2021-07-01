@@ -9,8 +9,8 @@
     - Ubicarte en la carpeta C: \laragon\www
 
     - Clonar repositorio git clone 
-        https: https://github.com/Mariam251299/videogames3.git
-        ssh: git@github.com:Mariam251299/videogames3.git
+        - https: https://github.com/Mariam251299/videogames3.git
+        - ssh: git@github.com:Mariam251299/videogames3.git
 
     - Acceder a la carpeta videogames cd laragon\www\videogames
 
