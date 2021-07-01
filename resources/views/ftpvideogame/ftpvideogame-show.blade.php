@@ -38,7 +38,38 @@
             </tbody>
         </table>
     </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Usuarios de este ftp videogame</h5>
+            <p class="card-text">
+                <ul>
+                    @foreach($ftpvideogame->users as $user)
+                        <li>{{$user->name}}</li>
+                    @endforeach
+                </ul>
 
+            </p>
+
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Agregar usuarios</h5>
+            <p class="card-text">
+            <form action="{{route('ftpvideogame.agrega-usuario', $ftpvideogame)}}" method="POST">
+            @csrf
+                <select class="form-select" aria-label="Default select example" name="user_id[]" multiple>
+                    @foreach($users as $user)
+                        <option value="{{ $user->id}}" {{array_search($user->id, $ftpvideogame->users->pluck('id')->toArray()) !== false ? 'selected' : ''}}>{{ $user->name }}</option>
+                    @endforeach
+                </select>
+
+                <button type="submit" class="btn btn-danger">Actualizar usuarios</button>
+            </form>
+            </p>
+
+        </div>
+    </div>
     @auth
         @if(auth()->user()->tipo=='Administrador')
         <form action="{{ route('ftpvideogame.destroy', $ftpvideogame) }}" method="POST">

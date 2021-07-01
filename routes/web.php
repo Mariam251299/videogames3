@@ -54,7 +54,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //con verified especifica que el usuario debe tener el correo verificado para poder acceder a estas paginas
 Route::resource('videogame', VideogameController::class)->middleware('verified');
 //->middleware('auth');
-
+Route::post('ftpvideogame/{ftpvideogame}/agrega-usuario', [FtpvideogameController::class, 'agregaUsuario'])->name('ftpvideogame.agrega-usuario');
 Route::resource('ftpvideogame', FtpvideogameController::class)->middleware('verified');
 
 //me envia al metodo download dentro de file el nombre del archivo que se quiere descargar

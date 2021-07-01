@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ftpvideogame;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate; //gate
@@ -82,8 +83,9 @@ class FtpvideogameController extends Controller
      */
     public function show(Ftpvideogame $ftpvideogame)
     {
+        $users = User::get();
         //muestra un videojuego en especifico de acuerdo a su id
-        return view('ftpvideogame.ftpvideogame-show', compact('ftpvideogame'));
+        return view('ftpvideogame.ftpvideogame-show', compact('ftpvideogame', 'users'));
     }
 
     /**
@@ -131,5 +133,21 @@ class FtpvideogameController extends Controller
         //elimina un videojuego
         $ftpvideogame->delete();
         return redirect()->route('ftpvideogame.index');
+    }
+
+
+        /**
+     * Agrega un usuario a un ftpvideogame.
+     *
+     * @param  \App\Models\Ftpvideogame  $ftpvideogame
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function agregaUsuario(Request $request, Ftpvideogame $ftpvideogame)
+    {
+        //gates
+        Gate::authorize('admin-ftpvideogames');
+        $ftpvideogame->users()->sync($request->user_id);
+        return redirect()->route('ftpvideogame.show', $ftpvideogame);
     }
 }
