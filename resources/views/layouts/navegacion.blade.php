@@ -12,6 +12,14 @@
             @auth
             <li class="nav-item"><a class="nav-link" href="{{ route('videogame.index') }}">Videojuegos</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('ftpvideogame.index') }}">Free to Play Videojuegos</a></li>
+
+            @if(auth()->user()->tipo=='Cliente')
+                <li class="nav-item"><a class="nav-link" href="{{ route('file.index') }}">Agregar recomendaciones</a></li>
+            @else
+                <li class="nav-item"><a class="nav-link" href="{{ route('file.index') }}">Ver recomendaciones</a></li>
+            @endif
+
+
             <li class="nav-item"><a class="nav-link" href="#portfolio">Noticias</a></li>
             <li class="nav-item">
                 @csrf
