@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         //directorio de todos los seeders que queramos que se ejecuten en automatico
         // \App\Models\User::factory(10)->create();
         $this->call([
-            VideogamesSeeder::class,
+            //VideogamesSeeder::class,
             FtpvideogamesSeeder::class,
             //TicketsSeeder::class,
         ]);

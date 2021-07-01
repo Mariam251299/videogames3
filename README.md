@@ -33,3 +33,5 @@
     - Ejecutar Seeder: php artisan db:seed 
 
 Nota: Profesor, durante la realización de su proyecto, cuando estabamos haciendo los ultimos commits, comenzamos a tener problemas al tratar de hacer los git push. Perdimos los ultimos commits, por lo que decidmos subir todo lo que llevabamos del proyecto a este nuevo repositorio. Si quiere ver todos los commits que hicimos anteriormente, aqui le dejamos el link del repositorio que nos falló: https://github.com/Mariam251299/videoGames
+
+Nota: Es importante que corra los seeders ya que tenemos un seeder para los ftpvideogames. Aqui habrán dos juegos que creamos y a los cuales podrá acceder y jugar mediante un link que se encuentra en la tabla de ftpvideogames. 
