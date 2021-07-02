@@ -13,7 +13,16 @@
             <p><a href= {{ route('videogame.create') }} class="btn btn-dark" role="button">Agregar Videojuego</a></p>
         @endif
     @endauth
-
+    @if(session('info'))
+        <div class="alert alert-success" role="alert">
+            {{session('info')}}
+        </div>
+    @endif
+    @if(session('delete'))
+        <div class="alert alert-success" role="alert">
+            {{session('delete')}}
+        </div>
+    @endif
 
 
     <div class="table-responsive table-responsive-xl">

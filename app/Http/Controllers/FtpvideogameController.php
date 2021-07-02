@@ -72,7 +72,7 @@ class FtpvideogameController extends Controller
         //La siguiente linea nos permite guardar todos los datos del formulario en la base de datos
         Ftpvideogame::create($request->all());
         //cuando nos guarde en la db, nos redirecciona al index
-        return redirect()->route('ftpvideogame.index');
+        return redirect()->route('ftpvideogame.index')->with('info','FTPVideojuego agregado exitosamente.');
     }
 
     /**
@@ -132,7 +132,7 @@ class FtpvideogameController extends Controller
         Gate::authorize('admin-ftpvideogames');
         //elimina un videojuego
         $ftpvideogame->delete();
-        return redirect()->route('ftpvideogame.index');
+        return redirect()->route('ftpvideogame.index')->with('delete','FTPVideojuego eliminado exitosamente.');
     }
 
 

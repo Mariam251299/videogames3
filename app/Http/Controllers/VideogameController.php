@@ -76,7 +76,7 @@ class VideogameController extends Controller
         //La siguiente linea nos permite guardar todos los datos del formulario en la base de datos
         Videogame::create($request->all());
         //cuando nos guarde en la db, nos redirecciona al index
-        return redirect()->route('videogame.index');
+        return redirect()->route('videogame.index')->with('info','Videojuego agregado exitosamente.');
     }
 
     /**
@@ -137,6 +137,6 @@ class VideogameController extends Controller
         //$this->authorize('delete', $videogame); //policy
         //elimina un videojuego
         $videogame->delete();
-        return redirect()->route('videogame.index');
+        return redirect()->route('videogame.index')->with('delete','Videojuego eliminado exitosamente.');
     }
 }
